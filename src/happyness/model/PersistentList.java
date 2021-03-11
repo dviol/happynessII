@@ -5,18 +5,18 @@ import java.util.LinkedList;
 public class PersistentList {
 
 	LinkedList<HappyElement> happy_list;
-	private PersistentList persistentList= null;
+	private static PersistentList persistentList= null;
 	
 	
 	private PersistentList() {
 		happy_list = new LinkedList<HappyElement>();
 	}
 	
-	public PersistentList getPersistentList() {
-		if(this.persistentList == null) {
-			this.persistentList = new PersistentList();
+	public static PersistentList getPersistentList() {
+		if(persistentList == null) {
+			persistentList = new PersistentList();
 		}
-		return this.persistentList;
+		return persistentList;
 	}
 	
 	public HappyElement getEntry(int index) {
@@ -25,6 +25,8 @@ public class PersistentList {
 	public void addEntry(HappyElement happy) {
 		this.happy_list.add(happy);
 	}
-	
+	public int size() {
+		return persistentList.size();
+	}
 	
 }
