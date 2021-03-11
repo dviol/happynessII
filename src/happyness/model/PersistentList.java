@@ -2,6 +2,8 @@ package happyness.model;
 
 import java.util.LinkedList;
 
+import happyness.controller.MainController;
+
 public class PersistentList {
 
 	LinkedList<HappyElement> happy_list;
@@ -10,6 +12,12 @@ public class PersistentList {
 	
 	private PersistentList() {
 		happy_list = new LinkedList<HappyElement>();
+		if(MainController.DEBUG) {
+			happy_list.add(new HappyElement("0 Ich liebe dich!"));
+			happy_list.add(new HappyElement("1 Ich dich auch!"));
+			happy_list.add(new HappyElement("2 Du bist so toll!"));
+			
+		}
 	}
 	
 	public static PersistentList getPersistentList() {
@@ -26,7 +34,7 @@ public class PersistentList {
 		this.happy_list.add(happy);
 	}
 	public int size() {
-		return persistentList.size();
+		return happy_list.size();
 	}
 	
 }

@@ -5,6 +5,6 @@ public interface Interface_Front {
 	
 	
 	String getEntry();
-	void   addEntry();
+	void   addEntry(String hapy);
 	void   showEntry();
 }

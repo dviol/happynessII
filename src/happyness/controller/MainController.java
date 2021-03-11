@@ -6,7 +6,12 @@ import happyness.view.Console_Front;
 import happyness.view.Interface_Front;
 
 public class MainController {
+	public static final boolean DEBUG = true;
 
+	
+	private final static String PROMPT = "Moin! Was möchtest du mir sagen?";
+	private final static String THANKS = "Dankö!";
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean running = true;
@@ -14,36 +19,38 @@ public class MainController {
 		System.out.println("===========================");
 		getHelp();
 
-		Scanner sc = new Scanner(System.in);
 		String input = "";
-		
-		Interface_Front i_f = new Console_Front();
-		
+
+		Console_Front i_f = new Console_Front();
+		Scanner sc = new Scanner(System.in);
+
 		while (running) {
 			System.out.println("Was du wolle? (h für Hilfe)");
-			input = sc.next().toLowerCase();
+			input = sc.nextLine().toLowerCase();
+
 			switch (input) {
-			case "z": //Zitat ausgeben
-				
+			case "z": // Zitat ausgeben
 				i_f.showEntry();
 				break;
-			case "e": //Zitat eingeben
-				i_f.addEntry();
+			case "e": // Zitat eingeben
+				System.out.println(PROMPT);
+				i_f.addEntry(sc.nextLine());
+				System.out.println(THANKS);
 				break;
-			case "h": //Hilfe anzeigen
+			case "h": // Hilfe anzeigen
 				getHelp();
 				break;
-			case "x": //Beenden
+			case "x": // Beenden
 				running = false;
 				break;
-			default: //Falsche eingabe
-				System.out.println("Leider habe ich dich nicht verstanden. Drücke h um die Optionen nochmal anzuzeigen");
+			default: // Falsche eingabe
+				System.out
+						.println("Leider habe ich dich nicht verstanden. Drücke h um die Optionen nochmal anzuzeigen");
 				break;
 			}
 		}
-		sc.close();
 		System.out.println("Tschaui!");
-
+		sc.close();
 	}
 
 	public static void getHelp() {
