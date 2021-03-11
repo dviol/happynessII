@@ -6,4 +6,6 @@
  *
  */
 module happynessII {
+	requires java.persistence;
+	requires java.desktop;
 }
