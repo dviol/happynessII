@@ -6,4 +6,5 @@
  *
  */
 module happynessII {
+    requires ojdbc11;
 }
